@@ -1,0 +1,24 @@
+<?js
+var data = obj || {};
+var reCode = new RegExp('`(.*?)`', 'gi');
+var reBold = new RegExp(/(\*\*|__)(.*?)\1/, 'gi');
+
+if (data.description) {
+	newdesc = description.replace(reCode, '<code>$1</code>');
+    newdesc = newdesc.replace(reBold, '<strong>$2</strong>');
+?>
+<div class="param-description return-desc returns-tmpl">
+    <?js= newdesc ?>
+</div>
+<?js } ?>
+
+<?js if (data.type && data.type.names) {?>
+<dl class="details details-return">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        <?js= this.partial('type.tmpl', data.type.names) ?>
+    </dd>
+</dl>
+<?js } ?>

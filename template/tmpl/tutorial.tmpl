@@ -1,0 +1,23 @@
+<article>
+
+	<header>
+	<p><?js= header ?></p>
+	</header>
+
+	<div class="entry hentry">
+		<?js= content ?>
+
+		<?js if (children.length > 0) { ?>
+			<aside class="children-tutorials">
+				<ul>
+				<?js
+					var self = this;
+					children.forEach(function(t) { ?>
+						<li><?js= self.tutoriallink(t.name) ?></li>
+				<?js }); ?>
+				</ul>
+			</aside>
+		<?js } ?>
+	</div>
+
+</article>

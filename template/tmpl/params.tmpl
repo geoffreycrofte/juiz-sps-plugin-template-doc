@@ -1,0 +1,158 @@
+<?js
+    // DOC : https://jsdoc.app/tags-param.html
+    var params = obj;
+
+    /* sort subparams under their parent params (like opts.classname) */
+    var parentParam = null;
+    params.forEach(function(param, i) {
+        var paramRegExp;
+
+        if (!param) {
+            return;
+        }
+
+        if (parentParam && parentParam.name && param.name) {
+            paramRegExp = new RegExp('^(?:' + parentParam.name + '(?:\\[\\])*)\\.(.+)$');
+
+            if ( paramRegExp.test(param.name) ) {
+                param.name = RegExp.$1;
+                parentParam.subparams = parentParam.subparams || [];
+                parentParam.subparams.push(param);
+                params[i] = null;
+            }
+            else {
+                parentParam = param;
+            }
+        }
+        else {
+            parentParam = param;
+        }
+    });
+
+    /* determine if we need extra columns, "attributes" and "default" */
+    params.hasAttributes = false;
+    params.hasDefault = false;
+    params.hasName = false;
+
+    params.forEach(function(param) {
+        if (!param) { return; }
+
+        if (param.optional || param.nullable || param.variable) {
+            params.hasAttributes = true;
+        }
+
+        if (param.name) {
+            params.hasName = true;
+        }
+
+        if (typeof param.defaultvalue !== 'undefined') {
+            params.hasDefault = true;
+        }
+    });
+?>
+
+<table class="params params-tmpl">
+    <thead>
+    <tr>
+        <?js if (params.hasName) {?>
+        <th class="param-name">Name</th>
+        <?js } ?>
+
+        <th class="param-type">Type</th>
+
+        <?js if (params.hasAttributes) {?>
+        <th class="param-attributes">Attributes</th>
+        <?js } ?>
+
+        <?js if (params.hasDefault) {?>
+        <th class="param-default">Default</th>
+        <?js } ?>
+
+        <th class="param-description last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <?js
+        var self = this;
+        var uniqid;
+        params.forEach(function(param) {
+            if (!param) { return; }
+            if (params.hasName) {
+                uniqid = param.name.replace('\$', '');
+            }
+    ?>
+
+        <tr id="<?js= uniqid ?>">
+            <?js 
+                var paramname;
+                if (params.hasName) { 
+                    paramname = param.name.charAt(0) === '$' ? param.name : '$' + param.name;
+
+                    // if subparams is array
+                    if ( params.daddyname && params.daddytype && params.daddytype === 'array' ) {
+                        paramname = params.daddyname + '[\'' + param.name + '\']';
+                    }
+
+                    // if subparams is Object
+                    if ( params.daddyname && params.daddytype && params.daddytype === 'object' ) {
+                        paramname = params.daddyname + '->' + param.name;
+                    }
+            ?>
+                <td class="param-name name"><code><?js= paramname ?></code></td>
+            <?js } ?>
+
+            <td class="param-type type">
+            <?js if (param.type && param.type.names) {?>
+                <?js= self.partial('type.tmpl', param.type.names) ?>
+            <?js } ?>
+            </td>
+
+            <?js if (params.hasAttributes) {?>
+                <td class="param-attributes attributes">
+                <?js if (param.optional) { ?>
+                    &lt;optional><br>
+                <?js } ?>
+
+                <?js if (param.nullable) { ?>
+                    &lt;nullable><br>
+                <?js } ?>
+
+                <?js if (param.variable) { ?>
+                    &lt;repeatable><br>
+                <?js } ?>
+                </td>
+            <?js } ?>
+
+            <?js if (params.hasDefault) {?>
+                <td class="param-default default">
+                <?js if (typeof param.defaultvalue !== 'undefined') { ?>
+                    <?js= self.htmlsafe(param.defaultvalue) ?>
+                <?js } ?>
+                </td>
+            <?js } ?>
+
+            <td class="param-description last">
+                <?js
+                var reCode = new RegExp('`(.*?)`', 'gi');
+                var reBold = new RegExp(/(\*\*|__)(.*?)\1/, 'gi');
+
+                paramdescription = param.description.replace(reCode, '<code>$1</code>');
+                paramdescription = paramdescription.replace(reBold, '<strong>$2</strong>');
+                ?>
+                <?js= paramdescription ?>
+
+                <?js
+                    if (param.subparams) {
+                    param.subparams.daddyname = paramname;
+                    param.subparams.daddytype = param.type.names[0];
+                ?>
+                
+                    <p class="sub-param-text">Properties</p>
+                    <?js= self.partial('params.tmpl', param.subparams) ?>
+                <?js } ?></td>
+        </tr>
+
+    <?js }); ?>
+    </tbody>
+</table>

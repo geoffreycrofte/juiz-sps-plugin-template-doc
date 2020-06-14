@@ -1,0 +1,128 @@
+<?js
+var data = obj;
+var self = this;
+var reCode = new RegExp('`(.*?)`', 'gi');
+var reBold = new RegExp(/(\*\*|__)(.*?)\1/, 'gi');
+var sign = data.signature ? data.signature.replace('(', '').replace(')', ' )') : false;
+if ( sign ) {
+    asign = sign.replace(/<[^>]*>?/gm, '').split(', ');
+    sign = '';
+    
+    for(i = 0; i < asign.length; i++) {
+        asign[i] = asign[i].charAt(0) === '$' ? asign[i] : '$' + asign[i];
+        sign += '<span class="sign-item">' + asign[i] + '</span>, ';
+    }
+
+    sign = sign.split(' )');
+    sign = '<span class="signature">' + sign[0] + '</span> )<span class="type-signature">' + sign[1].replace(/(,.$)/g, '') + '</span>';
+
+}
+?>
+<?js if (!data.hideconstructor) { ?>
+    <?js if (data.kind === 'class' && data.classdesc) { ?>
+    <h2 class="h2-like method-tmpl">Constructor</h2>
+    <?js } ?>
+
+    <pre class="name method-tmpl" id="<?js= id ?>"><?js= (data.returns ? 'apply_filters' : 'do_action') +
+    '( \'<span class="hook-name">' + name + '</span>\'' + (sign && data.params && data.params.length
+        ? ', ' + sign
+        : ' )') ?></pre>
+
+    <?js if (data.summary) { ?>
+    <p class="summary method-tmpl">
+        <?js 
+            newsummary = summary.replace(reCode, '<code>$1</code>');
+            newsummary = newsummary.replace(reBold, '<strong>$2</strong>');
+        ?>
+        <?js= newsummary ?>
+    </p>
+    <?js } ?>
+<?js } ?>
+
+<?js if (data.description) { ?>
+<div class="description method-tmpl">
+    <?js 
+        newdesc = data.description.replace(reCode, '<code>$1</code>');
+        newdesc = newdesc.replace(reBold, '<strong>$2</strong>');
+    ?>
+    <?js= newdesc ?>
+</div>
+<?js } ?>
+
+<?js if (kind === 'event' && data.type && data.type.names) {?>
+    <h2 class="h2-like method-tmpl">Type:</h2>
+    <ul>
+        <li>
+            <?js= self.partial('type.tmpl', data.type.names) ?>
+        </li>
+    </ul>
+<?js } ?>
+
+<?js if (data['this']) { ?>
+    <h2 class="h2-like method-tmpl">This:</h2>
+    <ul><li><?js= this.linkto(data['this'], data['this']) ?></li></ul>
+<?js } ?>
+
+<?js if (data.params && params.length && !data.hideconstructor) { ?>
+    <h2 class="h2-like method-tmpl">Parameters:</h2>
+    <?js= this.partial('params.tmpl', params) ?>
+<?js } ?>
+
+<?js= this.partial('details.tmpl', data) ?>
+
+<?js if (data.requires && data.requires.length) { ?>
+<h2 class="h2-like method-tmpl">Requires:</h2>
+<ul><?js data.requires.forEach(function(r) { ?>
+    <li><?js= self.linkto(r) ?></li>
+<?js }); ?></ul>
+<?js } ?>
+
+<?js if (data.fires && fires.length) { ?>
+<h2 class="h2-like method-tmpl">Fires:</h2>
+<ul><?js fires.forEach(function(f) { ?>
+    <li><?js= self.linkto(f) ?></li>
+<?js }); ?></ul>
+<?js } ?>
+
+<?js if (data.listens && listens.length) { ?>
+<h2 class="h2-like method-tmpl">Listens to Events:</h2>
+<ul><?js listens.forEach(function(f) { ?>
+    <li><?js= self.linkto(f) ?></li>
+<?js }); ?></ul>
+<?js } ?>
+
+<?js if (data.listeners && listeners.length) { ?>
+<h2 class="h2-like method-tmpl">Listeners of This Event:</h2>
+<ul><?js listeners.forEach(function(f) { ?>
+    <li><?js= self.linkto(f) ?></li>
+<?js }); ?></ul>
+<?js } ?>
+
+<?js if (data.exceptions && exceptions.length) { ?>
+<h2 class="h2-like method-tmpl">Throws:</h2>
+<?js if (exceptions.length > 1) { ?><ul><?js
+    exceptions.forEach(function(r) { ?>
+        <li><?js= self.partial('exceptions.tmpl', r) ?></li>
+    <?js });
+?></ul><?js } else {
+    exceptions.forEach(function(r) { ?>
+        <?js= self.partial('exceptions.tmpl', r) ?>
+    <?js });
+} } ?>
+
+<?js if (data.returns && returns.length) { ?>
+<h2 class="h2-like method-tmpl">Returns:</h2>
+<?js if (returns.length > 1) { ?><ul><?js
+    returns.forEach(function(r) { ?>
+        <li><?js= self.partial('returns.tmpl', r) ?></li>
+    <?js });
+?></ul><?js } else {
+    returns.forEach(function(r) { ?>
+        <?js= self.partial('returns.tmpl', r) ?>
+    <?js });
+} } ?>
+
+<?js if (data.examples && examples.length) { ?>
+    <h2 class="h2-like method-tmpl">Example<?js= examples.length > 1? 's':'' ?></h2>
+    <?js= this.partial('examples.tmpl', examples) ?>
+<?js } ?>

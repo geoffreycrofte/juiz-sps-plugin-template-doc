@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title><?js if ( title ) { ?><?js= title ?> - Juiz Social Post Sharer Documentation<?js } else { ?>Juiz Social Post Sharer Documentation<?js } ?></title>
+       
+        <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+        <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    </head>
+
+    <body>
+        <div class="app">
+            <section role="main" id="main">
+
+                <h1 class="page-title"><?js= title ?></h1>
+
+                <?js= content ?>
+
+                <p class="copyright">Plugin and documentation by <a href="https://geoffrey.crofte.fr/en/">Geoffrey Crofte</a> - All Right Reserved</p>
+            </section>
+
+            <nav role="navigation" id="navigation">
+                <?js= this.nav ?>
+
+                <p class="version">Doc. v 2.0.0</p>
+            </nav>
+        </div>
+        
+        <script src="scripts/juiz.js" defer></script>
+        <script src="scripts/prettify/prettify.js" defer></script>
+        <script src="scripts/prettify/lang-css.js" defer></script>
+        <script>
+            let launch = setInterval(function(){
+                if (typeof prettyPrint === 'function' ) {
+                    prettyPrint();
+                    clearInterval(launch);
+                    launch = null;
+                }
+            }, 50);
+        </script>
+        <script src="scripts/linenumber.js" defer></script>
+    </body>
+</html>
