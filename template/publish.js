@@ -277,7 +277,7 @@ function linktoLong(longName, name) {
  * @return {string} The HTML for the navigation sidebar.
  */
 function buildNav(members) {
-    var nav = '<ul>' + "\n\t\t\t\t\t" + '<li class="nav-item-home"><a href="index.html"><img src="images/social-post-sharer-logo-horiz.svg" width="248" height="48" alt="Home - Social Post Sharer Doc."></a></li>' + "\n\t";
+    var nav = '<ul>' + "\n\t\t\t\t\t" + '<li class="nav-item-home"><a href="index.html"><img src="images/nobs-logo-horiz.svg" width="249" height="48" alt="Nobs Share Plugin - Back Home"></a></li>' + "\n\t";
     var seen = {};
     var seenTutorials = {};
     var svgFilter = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 4.5V2.5C3 2.5 6.34 1.5 10 1.5C13.66 1.5 17 2.5 17 2.5V4.5L12 11.53V18.5C12 18.5 10.78 18.41 9.75 17.91C8.72 17.41 8 16.5 8 16.5V11.53L3 4.5Z" fill="currentColor"/></svg>';

@@ -1,1 +1,57 @@
-<p>This this the *create buttons skin doc*</p>
+<p class="subtitle">Create a fresh buttons skin for you website with Nobs • Share Buttons.</p>
+
+<p class="message notice">
+	<strong>Kind reminder:</strong>
+	This tutorial is made for the <a href="https://wordpress.org/plugins/juiz-social-post-sharer/">Nobs • Share Buttons</a> (ex-Juiz Social Post Sharer) plugin available on the WordPress repository but also <a href="https://github.com/geoffreycrofte/juiz-social-post-sharer">on Github</a>.
+</p>
+
+<p>
+	To create a new skin for your website, you don't necessarily have to start from scratch. There are 3 ways to get it done, I'll show you how to do so.
+</p>
+
+<h2 id="existing">Start from an existing skin</h2>
+
+<p>
+	You've got already 8 free skins in the core of this plugin. Feel free to use one and adjust the CSS a little bit. To do so, follow this other tutorial: {@tutorial customize-css-style-sheet}
+</p>
+
+<h2 id="theme">Create a decicated theme's style</h2>
+
+<p>
+	You can build a custom theme from scratch by creating a dedicated CSS file within you active WordPress theme.
+</p>
+
+<p>
+	All you need is to put some files into a new folder named <code>nobs-skins</code> (unless you change it with {@link juiz_sps_custom_skin_folder} ) in your current template.
+</p>
+
+<pre class="prettyprint">theme-folder
+|-- nobs-skins
+    |-- styles.css
+    |-- screenshot.png
+    |-- screenshot@2x.png
+</pre>
+
+<p>This basic structure for 1 skin can be duplicated if you need to add several skins, that's why nobs-skins folder take an S at the end 😜.</p>
+
+<pre class="prettyprint">theme-folder
+|-- nobs-skins
+    |-- skin-name-1
+        |-- styles.css
+        |-- screenshot.png
+        |-- screenshot@2x.png
+    |-- skin-name-2
+        |-- styles.css
+        |-- screenshot.png
+        |-- screenshot@2x.png
+</pre>
+
+<p>As long as you respect this structure, you can add as many skins as you need.</p>
+
+<p>Name and URL of the author are taken from the parent theme information (from the style.css file of the current WordPress Template). But if you want to change these, you can use {@link juiz_sps_custom_skin_author} and {@link juiz_sps_custom_skin_author_url} to customize those pieces information.</p>
+
+<h2 id="plugin">Create a Skin Extension</h2>
+
+<p>WordPress is powerful, so is Nobs • Share Buttons' plugin. Its power comes from the big amount of filters and action you can find in the core plugin, as well as in this documentation.</p>
+
+<p><em>Tutorial coming soon…</em></p>

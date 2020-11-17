@@ -1,15 +1,18 @@
-<article>
+<article class="tutorial-content">
 
 	<header>
-	<p><?js= header ?></p>
+	<!--p><?js= header ?></p-->
+		<p class="sr-only"><?js= title ?></p>
 	</header>
 
 	<div class="entry hentry">
+
 		<?js= content ?>
 
 		<?js if (children.length > 0) { ?>
 			<aside class="children-tutorials">
-				<ul>
+				<p id="children-tutorial">Children Tutorials</p>
+				<ul aria-describedby="children-tutorial">
 				<?js
 					var self = this;
 					children.forEach(function(t) { ?>
@@ -18,6 +21,7 @@
 				</ul>
 			</aside>
 		<?js } ?>
+
 	</div>
 
 </article>
