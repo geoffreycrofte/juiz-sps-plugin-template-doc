@@ -277,13 +277,19 @@ function linktoLong(longName, name) {
  * @return {string} The HTML for the navigation sidebar.
  */
 function buildNav(members) {
-    var nav = '<ul>' + "\n\t\t\t\t\t" + '<li class="nav-item-home"><a href="index.html"><img src="images/nobs-logo-horiz.svg" width="249" height="48" alt="Nobs Share Plugin - Back Home"></a></li>' + "\n\t";
+    // Nav starts with Logo + Home link.
+    var nav = '<a href="index.html" class="logo"><img src="images/nobs-logo-horiz.svg" width="249" height="48" alt="Nobs Share Plugin - Back Home"></a>';
     var seen = {};
     var seenTutorials = {};
     var svgFilter = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 4.5V2.5C3 2.5 6.34 1.5 10 1.5C13.66 1.5 17 2.5 17 2.5V4.5L12 11.53V18.5C12 18.5 10.78 18.41 9.75 17.91C8.72 17.41 8 16.5 8 16.5V11.53L3 4.5Z" fill="currentColor"/></svg>';
     var svgActions = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 12H15.82C15.65 12.7 15.38 13.35 15.01 13.93L16.55 15.47L14.45 17.57L12.91 16.03C12.33 16.39 11.68 16.66 11 16.82V19H8V16.82C7.32 16.66 6.67 16.39 6.09 16.03L4.55 17.57L2.43 15.45L3.97 13.91C3.61 13.33 3.34 12.68 3.18 12H1V9.03H3.17C3.33 8.33 3.61 7.68 3.97 7.09L2.43 5.55L4.53 3.45L6.07 4.99C6.65 4.62 7.31 4.35 8 4.18V2H11V4.18C11.68 4.34 12.33 4.61 12.91 4.97L14.45 3.43L16.57 5.55L15.03 7.09C15.39 7.68 15.67 8.33 15.83 9.03H18V12ZM9.5 13.5C11.16 13.5 12.5 12.16 12.5 10.5C12.5 8.84 11.16 7.5 9.5 7.5C7.84 7.5 6.5 8.84 6.5 10.5C6.5 12.16 7.84 13.5 9.5 13.5Z" fill="currentColor"/></svg>';
     var svgLearn = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 10L2.54 7.02L3 18H1L1.48 6.59L0 6L10 2L20 6L10 10ZM10 5C9.45 5 9 5.22 9 5.5C9 5.78 9.45 6 10 6C10.55 6 11 5.78 11 5.5C11 5.22 10.55 5 10 5ZM10 11L15.57 8.77C16.28 9.71 16.77 10.84 16.93 12.07C16.63 12.03 16.32 12 16 12C13.45 12 11.22 13.37 10 15.41C9.38075 14.3708 8.50224 13.5101 7.45048 12.9124C6.39872 12.3146 5.20976 12.0002 4 12C3.68 12 3.37 12.03 3.07 12.07C3.23 10.84 3.72 9.71 4.43 8.77L10 11Z" fill="currentColor"/></svg>';
-    
+
+    // Search Form.
+    nav += '<form role="search" action="#"><label for="search-nav-bar" class="sr-only">Search Doc.</label><span class="control-group"><input type="search" name="search" id="search-nav-bar"><button type="submit"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 17C13.866 17 17 13.866 17 10C17 6.13401 13.866 3 10 3C6.13401 3 3 6.13401 3 10C3 13.866 6.13401 17 10 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Search</span></button></span></form>';
+
+    // Start Menu List.
+    nav += '<ul>' + "\n\t\t\t\t\t\n\t";
     nav += buildMemberNav(members.tutorials, svgLearn + 'Tutorials', seenTutorials, linktoTutorial);
     nav += buildMemberNav(members.filters, svgFilter + 'Filters', seen, linktoLong);
     nav += buildMemberNav(members.actions, svgActions + 'Actions', seen, linktoLong);

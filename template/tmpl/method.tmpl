@@ -20,7 +20,7 @@ if ( sign ) {
 ?>
 <?js if (!data.hideconstructor) { ?>
     <?js if (data.kind === 'class' && data.classdesc) { ?>
-    <h2 class="h2-like method-tmpl">Constructor</h2>
+    <h2 id="constructor" class="h2-like method-tmpl">Constructor</h2>
     <?js } ?>
 
     <pre class="name method-tmpl" id="<?js= id ?>"><?js= (data.returns ? 'apply_filters' : 'do_action') +
@@ -50,7 +50,7 @@ if ( sign ) {
 <?js } ?>
 
 <?js if (kind === 'event' && data.type && data.type.names) {?>
-    <h2 class="h2-like method-tmpl">Type:</h2>
+    <h2 id="type" class="h2-like method-tmpl">Type:</h2>
     <ul>
         <li>
             <?js= self.partial('type.tmpl', data.type.names) ?>
@@ -59,47 +59,47 @@ if ( sign ) {
 <?js } ?>
 
 <?js if (data['this']) { ?>
-    <h2 class="h2-like method-tmpl">This:</h2>
+    <h2 id="this" class="h2-like method-tmpl">This:</h2>
     <ul><li><?js= this.linkto(data['this'], data['this']) ?></li></ul>
 <?js } ?>
 
 <?js if (data.params && params.length && !data.hideconstructor) { ?>
-    <h2 class="h2-like method-tmpl">Parameters:</h2>
+    <h2 id="params" class="h2-like method-tmpl">Parameters:</h2>
     <?js= this.partial('params.tmpl', params) ?>
 <?js } ?>
 
 <?js= this.partial('details.tmpl', data) ?>
 
 <?js if (data.requires && data.requires.length) { ?>
-<h2 class="h2-like method-tmpl">Requires:</h2>
+<h2 id="requires" class="h2-like method-tmpl">Requires:</h2>
 <ul><?js data.requires.forEach(function(r) { ?>
     <li><?js= self.linkto(r) ?></li>
 <?js }); ?></ul>
 <?js } ?>
 
 <?js if (data.fires && fires.length) { ?>
-<h2 class="h2-like method-tmpl">Fires:</h2>
+<h2 id="fires" class="h2-like method-tmpl">Fires:</h2>
 <ul><?js fires.forEach(function(f) { ?>
     <li><?js= self.linkto(f) ?></li>
 <?js }); ?></ul>
 <?js } ?>
 
 <?js if (data.listens && listens.length) { ?>
-<h2 class="h2-like method-tmpl">Listens to Events:</h2>
+<h2 id="listens" class="h2-like method-tmpl">Listens to Events:</h2>
 <ul><?js listens.forEach(function(f) { ?>
     <li><?js= self.linkto(f) ?></li>
 <?js }); ?></ul>
 <?js } ?>
 
 <?js if (data.listeners && listeners.length) { ?>
-<h2 class="h2-like method-tmpl">Listeners of This Event:</h2>
+<h2 id="listeners" class="h2-like method-tmpl">Listeners of This Event:</h2>
 <ul><?js listeners.forEach(function(f) { ?>
     <li><?js= self.linkto(f) ?></li>
 <?js }); ?></ul>
 <?js } ?>
 
 <?js if (data.exceptions && exceptions.length) { ?>
-<h2 class="h2-like method-tmpl">Throws:</h2>
+<h2 id="throws" class="h2-like method-tmpl">Throws:</h2>
 <?js if (exceptions.length > 1) { ?><ul><?js
     exceptions.forEach(function(r) { ?>
         <li><?js= self.partial('exceptions.tmpl', r) ?></li>
@@ -111,7 +111,7 @@ if ( sign ) {
 } } ?>
 
 <?js if (data.returns && returns.length) { ?>
-<h2 class="h2-like method-tmpl">Returns:</h2>
+<h2 id="returns" class="h2-like method-tmpl">Returns:</h2>
 <?js if (returns.length > 1) { ?><ul><?js
     returns.forEach(function(r) { ?>
         <li><?js= self.partial('returns.tmpl', r) ?></li>
@@ -123,6 +123,6 @@ if ( sign ) {
 } } ?>
 
 <?js if (data.examples && examples.length) { ?>
-    <h2 class="h2-like method-tmpl">Example<?js= examples.length > 1? 's':'' ?></h2>
+    <h2 id="examples" class="h2-like method-tmpl">Example<?js= examples.length > 1? 's':'' ?></h2>
     <?js= this.partial('examples.tmpl', examples) ?>
 <?js } ?>

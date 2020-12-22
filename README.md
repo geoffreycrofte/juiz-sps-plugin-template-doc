@@ -1,18 +1,11 @@
-﻿Contributors: CreativeJuiz
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P39NJPCWVXGDY&lc=FR&item_name=Juiz%20Social%20Post%20Sharer%20%2d%20WP%20Plugin&item_number=%23wp%2djsps&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
-Tags: social, twitter, google, facebook, digg, stumbleupon, linkedin, pinterest, viadeo, weibo, vkontakte, post, share
-Requires at least: 3.3
-Tested up to: 5.5.3
-Stable tag: 2.0.0
+﻿= Nobs • Share Buttons — Documentation =
 
-Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters). Totally GDPR compliant.
+<h2>Description</h2>
 
-== Description ==
+<p>Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters). Buttons are Retina/HDPI-ready, translation-ready and come with useful options and hooks. Totally GDPR compliant.</p>
 
-Add smart designed buttons after/before your posts to allow visitors sharing your content (includes no JavaScript mode & counters). Buttons are Retina/HDPI-ready, translation-ready and come with useful options and hooks. Totally GDPR compliant.
-
-Select your favorites social networks among a little list.
-Display an optional sharings counter.
+<p>Select your favorites social networks among a little list.<br>
+Display an optional sharings counter.</p>
 
 **You can donate to support**
 

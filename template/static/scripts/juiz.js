@@ -15,7 +15,7 @@
 	 * for mobile purpose
 	 */
 	let body = document.querySelector('body'),
-		nav  = document.querySelector('nav'),
+		nav  = document.getElementById('navigation'),
 		btn  = document.createElement('button'),
 		doOnResize = function(){
 			if ( window.matchMedia("(max-width: 840px)").matches ) {
@@ -30,7 +30,10 @@
 
 				if ( btn ) {
 					btn.removeEventListener('click', toggleMenu );
-					nav.querySelector('.menu-btn').remove();
+
+					if ( nav.querySelector('.menu-btn') ) {
+						nav.querySelector('.menu-btn').remove();
+					}
 				}
 			}
 		},
@@ -61,5 +64,7 @@
 	window.addEventListener('resize', function() {
 		window.requestAnimationFrame( doOnResize );
 	});
+
 	doOnResize();
+
 })(window, document);

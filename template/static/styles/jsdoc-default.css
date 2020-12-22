@@ -54,6 +54,14 @@
     --brand-code-bg: #E9F8FD;
     --brand-code-light: #6CB7D0;
 
+    /* Yellow accent */
+    --yellow-light: #FEF6AA;
+    --yellow-lighter: #FFFBEC;
+
+    /* Orange accent */
+    --orange: #D96946;
+    --orange-light: #F69272;
+
     --padding-lat: 24px;
     
 }
@@ -190,8 +198,7 @@ nav a:focus {
     text-decoration: none;
 }
 
-nav .sub-item,
-nav .nav-item-home {
+nav .sub-item {
     font-weight: 700;
     font-size: 1.2em;
 }
@@ -200,11 +207,146 @@ nav .nav-item-home {
     margin-top: 24px;
 }
 
-.nav-item-home {
-    margin-top: 0;
+.logo {
     text-align: center;
     line-height: 0;
 }
+
+/* Search form */
+nav form {
+    padding: 16px 16px 0 16px;
+}
+
+.control-group {
+    display: flex;
+}
+
+.control-group input {
+    flex-basis: 100%;
+    border-radius: 48px;
+    padding: 0 56px 0 24px;
+    border: 0;
+    font-size: 0.875em;
+}
+
+.control-group .algolia-autocomplete {
+    flex-basis: 100%;
+}
+
+.control-group .algolia-autocomplete input {
+    width: 100%;
+    height: 100%;
+}
+
+.control-group button {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-left: -48px;
+    color: var(--brand);
+    background: none;
+    border-radius: 48px;
+    border: 0;
+}
+
+/* Search result tweaks Agolia */
+nav .algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"],
+nav .algolia-autocomplete .ds-dropdown-menu {
+    border-radius: 16px;
+}
+
+nav .algolia-autocomplete .ds-dropdown-menu {
+    box-shadow: 0 8px 16px rgba(0,0,0,.06), 0 4px 8px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.1);
+}
+
+nav .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column,
+nav .algolia-autocomplete .algolia-docsearch-suggestion.algolia-docsearch-suggestion__main .algolia-docsearch-suggestion--category-header {
+    display: none;
+}
+
+nav .algolia-autocomplete .algolia-docsearch-suggestion--content,
+nav .algolia-autocomplete .algolia-docsearch-footer {
+    float: none;
+    width: 100%;
+    padding: 8px 0;
+}
+
+nav .algolia-autocomplete .algolia-docsearch-footer--logo {
+    background: none;
+    text-indent: 0;
+}
+
+nav .algolia-autocomplete .algolia-docsearch-footer {
+    width: auto;
+    float: none;
+    height: auto;
+    margin: 8px -8px -8px -8px;
+    font-size: 12px;
+    line-height: 1.55;
+    text-align: left;
+    padding-left: 16px;
+    color: var(--branddark);
+    background-color: var(--brand-code-bg);
+}
+
+nav .algolia-autocomplete .algolia-docsearch-footer--logo {
+    background: none;
+    text-indent: 0;
+    display: inline;
+    color: inherit;
+}
+
+nav .algolia-autocomplete .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight,
+nav .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+    box-shadow: none;
+    background: var(--yellow-light);
+    color: var(--dark);
+}
+
+nav .algolia-autocomplete .algolia-docsearch-suggestion--wrapper {
+    padding: 0;
+    float: none;
+}
+
+nav .algolia-autocomplete .ds-dropdown-menu .ds-suggestion a {
+    padding: 8px;
+    transition: all .3s;
+}
+
+nav .algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor a {
+    padding-right: 4px;
+}
+
+nav .algolia-autocomplete .ds-dropdown-menu .ds-suggestion + .ds-suggestion a {
+    border-top: 1px solid var(--brand-code-bg);
+}
+
+nav .algolia-autocomplete .algolia-docsearch-suggestion--title {
+    color: var(--brand-code);
+    margin-bottom: 0;
+}
+nav .algolia-autocomplete .algolia-docsearch-suggestion--text {
+    margin-top: 4px;
+    color: #666;
+}
+
+nav .algolia-autocomplete .algolia-docsearch-suggestion--content::before {
+    content: none;
+}
+
+nav .algolia-autocomplete .ds-dropdown-menu .ds-suggestion .algolia-docsearch-suggestion,
+nav .algolia-autocomplete .ds-dropdown-menu .ds-suggestion .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--content {
+    transition: all .3s;
+    border-radius: 8px
+}
+
+nav .algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion.suggestion-layout-simple,
+nav .algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--content {
+    background: var(--brand-code-bg);
+    padding-left: 4px;
+}
+
+/* Navigation */
 
 nav .nav-item-actions a,
 nav .nav-item-filters a {
@@ -212,6 +354,7 @@ nav .nav-item-filters a {
     line-height: 18px;
     color: inherit;
 }
+
 
 nav ul ul {
     background: var(--darklight);
