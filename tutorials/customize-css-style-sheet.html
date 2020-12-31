@@ -173,6 +173,9 @@
 
 	--whatsapp: #128C7E;
 	--whatsappdark: #075E54;
+
+	--shareapi: #5250B1;
+	--shareapidark: #3C3B69;
 }
 
 @font-face {
@@ -231,7 +234,8 @@
 .jsps-reddit::before {
 	content: "\e90a";
 }
-.jsps-share::before {
+.jsps-share::before,
+.jsps-shareapi::before {
 	content: "\e90b";
 }
 .jsps-tumblr::before {
@@ -283,7 +287,7 @@
 }
 
 /* Link / Button */
-.juiz_sps_links .juiz_sps_item a {
+.juiz_sps_links .juiz_sps_item .juiz_sps_button {
 }
 
 /* The network name */
@@ -300,66 +304,85 @@
 }
 
 /* The link when hovered/focused */
-.juiz_sps_links .juiz_sps_item a:hover,
-.juiz_sps_links .juiz_sps_item a:focus {
+.juiz_sps_links .juiz_sps_item .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_item .juiz_sps_button:focus {
 }
 
 /* The link when active/clicked/touched */
-.juiz_sps_links .juiz_sps_item a:active {
+.juiz_sps_links .juiz_sps_item .juiz_sps_button:active {
 }
 
 /**
  * Color Application
  */
-.juiz_sps_links .juiz_sps_link_twitter a {
+.juiz_sps_links .juiz_sps_link_twitter .juiz_sps_button {
 	background-color: var(--twitter);
 }
 
-.juiz_sps_links .juiz_sps_link_twitter a:hover,
-.juiz_sps_links .juiz_sps_link_twitter a:focus { 
+.juiz_sps_links .juiz_sps_link_twitter .juiz_sps_button:hover,
+.juiz_sps_links .juiz_sps_link_twitter .juiz_sps_button:focus { 
 	background-color: var(--twitterdark);
 }
 
 /* ... and so on... */
 
-/* Specific: When names are hidden via the options */
-.juiz_sps_hide_name .juiz_sps_item a {
+/**
+ * Specific: When names are hidden via the options
+ */
+
+.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button {
 	padding: 8px; /* override --link-padding */
 }
 
-.juiz_sps_hide_name a .juiz_sps_network_name {
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_network_name {
 	max-width: 0;
 	white-space: nowrap!important;
 	overflow: hidden;
 }
 
-.juiz_sps_hide_name a .juiz_sps_network_name { 
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_network_name { 
 	-webkit-transition: max-width .75s;
 			transition: max-width .75s;
 }
 
-.juiz_sps_hide_name a .juiz_sps_icon {
+.juiz_sps_hide_name .juiz_sps_button .juiz_sps_icon {
 	margin-right:0;
 	-webkit-transition: margin .75s;
 			transition: margin .75s;
 }
 
-.juiz_sps_hide_name .juiz_sps_item a:hover,
-.juiz_sps_hide_name .juiz_sps_item a:focus {
+.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button:hover,
+.juiz_sps_hide_name .juiz_sps_item .juiz_sps_button:focus {
 	padding: var(--link-padding);
 }
 
-.juiz_sps_hide_name a:hover .juiz_sps_network_name,
-.juiz_sps_hide_name a:focus .juiz_sps_network_name {
+.juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_network_name,
+.juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_network_name {
 	max-width: 8em;
 }
 
-.juiz_sps_hide_name a:hover .juiz_sps_icon,
-.juiz_sps_hide_name a:focus .juiz_sps_icon {
+.juiz_sps_hide_name .juiz_sps_button:hover .juiz_sps_icon,
+.juiz_sps_hide_name .juiz_sps_button:focus .juiz_sps_icon {
 	margin-right: .3em;
 }
 
-/* Specific: When the counters are activated via the options */
+/**
+ * Specific: When Compact Mode is ON
+ */
+.juiz_sps_links .juiz_sps_compact .juiz_sps_button {
+	/* Do something */
+}
+
+/**
+ * Specific: When Compact Mode and Hidden Name are ON
+ */
+.juiz_sps_links .juiz_sps_compact.juiz_sps_hide_name .juiz_sps_button {
+	/* Do something */
+}
+
+/**
+ * Specific: When the counters are activated via the options
+ */
 .juiz_sps_counter {
 }
 

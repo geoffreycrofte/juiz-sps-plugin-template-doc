@@ -250,33 +250,38 @@ nav form {
 }
 
 /* Search result tweaks Agolia */
-nav .algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"],
-nav .algolia-autocomplete .ds-dropdown-menu {
+.algolia-autocomplete.algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"],
+.algolia-autocomplete.algolia-autocomplete .ds-dropdown-menu {
     border-radius: 16px;
 }
 
-nav .algolia-autocomplete .ds-dropdown-menu {
+.algolia-autocomplete.algolia-autocomplete .ds-dropdown-menu {
+    min-width: auto;
+    width: 100%;
+}
+
+.algolia-autocomplete.algolia-autocomplete .ds-dropdown-menu {
     box-shadow: 0 8px 16px rgba(0,0,0,.06), 0 4px 8px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.1);
 }
 
-nav .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column,
-nav .algolia-autocomplete .algolia-docsearch-suggestion.algolia-docsearch-suggestion__main .algolia-docsearch-suggestion--category-header {
+.algolia-autocomplete.algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column,
+.algolia-autocomplete.algolia-autocomplete .algolia-docsearch-suggestion.algolia-docsearch-suggestion__main .algolia-docsearch-suggestion--category-header {
     display: none;
 }
 
-nav .algolia-autocomplete .algolia-docsearch-suggestion--content,
-nav .algolia-autocomplete .algolia-docsearch-footer {
+.algolia-autocomplete.algolia-autocomplete .algolia-docsearch-suggestion--content,
+.algolia-autocomplete.algolia-autocomplete .algolia-docsearch-footer {
     float: none;
     width: 100%;
     padding: 8px 0;
 }
 
-nav .algolia-autocomplete .algolia-docsearch-footer--logo {
+.algolia-autocomplete.algolia-autocomplete .algolia-docsearch-footer--logo {
     background: none;
     text-indent: 0;
 }
 
-nav .algolia-autocomplete .algolia-docsearch-footer {
+.algolia-autocomplete.algolia-autocomplete .algolia-docsearch-footer {
     width: auto;
     float: none;
     height: auto;
@@ -289,59 +294,59 @@ nav .algolia-autocomplete .algolia-docsearch-footer {
     background-color: var(--brand-code-bg);
 }
 
-nav .algolia-autocomplete .algolia-docsearch-footer--logo {
+.algolia-autocomplete.algolia-autocomplete .algolia-docsearch-footer--logo {
     background: none;
     text-indent: 0;
     display: inline;
     color: inherit;
 }
 
-nav .algolia-autocomplete .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight,
-nav .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+.algolia-autocomplete.algolia-autocomplete .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight,
+.algolia-autocomplete.algolia-autocomplete .algolia-docsearch-suggestion--highlight {
     box-shadow: none;
     background: var(--yellow-light);
     color: var(--dark);
 }
 
-nav .algolia-autocomplete .algolia-docsearch-suggestion--wrapper {
+.algolia-autocomplete.algolia-autocomplete .algolia-docsearch-suggestion--wrapper {
     padding: 0;
     float: none;
 }
 
-nav .algolia-autocomplete .ds-dropdown-menu .ds-suggestion a {
+.algolia-autocomplete.algolia-autocomplete .ds-dropdown-menu .ds-suggestion a {
     padding: 8px;
     transition: all .3s;
 }
 
-nav .algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor a {
+.algolia-autocomplete.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor a {
     padding-right: 4px;
 }
 
-nav .algolia-autocomplete .ds-dropdown-menu .ds-suggestion + .ds-suggestion a {
+.algolia-autocomplete.algolia-autocomplete .ds-dropdown-menu .ds-suggestion + .ds-suggestion a {
     border-top: 1px solid var(--brand-code-bg);
 }
 
-nav .algolia-autocomplete .algolia-docsearch-suggestion--title {
+.algolia-autocomplete.algolia-autocomplete .algolia-docsearch-suggestion--title {
     color: var(--brand-code);
     margin-bottom: 0;
 }
-nav .algolia-autocomplete .algolia-docsearch-suggestion--text {
+.algolia-autocomplete.algolia-autocomplete .algolia-docsearch-suggestion--text {
     margin-top: 4px;
     color: #666;
 }
 
-nav .algolia-autocomplete .algolia-docsearch-suggestion--content::before {
+.algolia-autocomplete.algolia-autocomplete .algolia-docsearch-suggestion--content::before {
     content: none;
 }
 
-nav .algolia-autocomplete .ds-dropdown-menu .ds-suggestion .algolia-docsearch-suggestion,
-nav .algolia-autocomplete .ds-dropdown-menu .ds-suggestion .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--content {
+.algolia-autocomplete.algolia-autocomplete .ds-dropdown-menu .ds-suggestion .algolia-docsearch-suggestion,
+.algolia-autocomplete.algolia-autocomplete .ds-dropdown-menu .ds-suggestion .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--content {
     transition: all .3s;
     border-radius: 8px
 }
 
-nav .algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion.suggestion-layout-simple,
-nav .algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--content {
+.algolia-autocomplete.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion.suggestion-layout-simple,
+.algolia-autocomplete.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--content {
     background: var(--brand-code-bg);
     padding-left: 4px;
 }
@@ -393,15 +398,16 @@ section .copyright {
     position: absolute;
     top: 32px;
     right: 0;
-    padding: 8px;
+    padding: 14px 8px 6px;
     z-index: 1;
-    transform: translateX(calc(100% + 16px ));
-    background: 0;
     border: 0;
     text-transform: uppercase;
     font-size: 8px;
     letter-spacing: .5px;
     font-weight: bold;
+    background: white;
+    transform: translateX(calc(100% + 16px ));
+    border-radius: 100%;
 }
 
 .off-canvas-menu .menu-icon {
@@ -425,15 +431,6 @@ section .copyright {
     right: 0;
     background: var(--brand);
     transition: all .4s;
-}
-
-.off-canvas-menu .menu-btn.is-open {
-    color: #FFF;
-}
-
-.off-canvas-menu.menu-is-open .menu-icon::before,
-.off-canvas-menu.menu-is-open .menu-icon::after {
-   background: #FFF; 
 }
 
 .off-canvas-menu .menu-icon::before {
@@ -461,11 +458,11 @@ section .copyright {
 }
 
 .off-canvas-menu.menu-is-open #main {
-    transform: scale(.8) translateX(10%);
+    transform: scale(.98) translateX(2%);
 }
 
 .off-canvas-menu nav > ul {
-    height: 92vh;
+    height: 78vh;
     overflow: auto;
 }
 
@@ -542,12 +539,14 @@ h6 {
 
 .off-canvas-menu .page-title {
     padding-left: 48px;
+    padding-right: 48px;
 }
 
 /**
  * Blocks
  */
 section,
+.section-like,
 h1 + article {
     display: block;
     background-color: #fff;
@@ -798,7 +797,7 @@ code {
 }
 
 .quick-reference {
-	background: #f9f9f9;
+    background: #f9f9f9;
     padding: 15px 25px;
     border-left: 3px solid #4d4e53;
     list-style: none;
@@ -810,6 +809,167 @@ h3.subsection-title {
     color: white;
     padding: 5px 10px;
 }
+
+/**
+ * Homepage Content
+ */
+
+.homepage .page-title {
+    margin-bottom: 0;
+    text-align: center;
+    color: var(--branddark);
+}
+
+.home-description {
+    margin-bottom: 40px;
+    line-height: 1.7;
+    color: #666;
+    font-size: 1.1em;
+}
+
+.homepage .page-title span {
+    display: block;
+    font-size: .875em;
+    color: var(--brand);
+}
+
+.homepage .page-title + .container-tmpl {
+    display: none;
+}
+
+.homepage p:empty {
+    display: none;
+}
+
+.home-search {
+    font-size: 1.2em;
+    margin: 0 calc( var(--padding-lat) * -2) 1.5em;
+    padding: var(--padding-lat) calc( var(--padding-lat) * 2);
+    background: var(--brand-code-bg);
+    color: var(--branddark);
+}
+
+.home-search p {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-search label {
+    display: block;
+    font-size: .875rem;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 500;
+}
+
+.home-search input {
+    width: 100%;
+    background: white;
+    border: 2px solid var(--brand-code-light);
+    border-radius: 48px;
+    font-size: 1.2em;
+    padding: 16px 48px;
+}
+
+.home-search .algolia-autocomplete {
+    display: block;
+    width: 100%;
+}
+
+.home-section .container > h2 {
+    margin-top: 0;
+}
+
+.home-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0;
+    padding: 24px 0;
+    list-style: none;
+    gap: 40px;
+}
+
+@media (max-width: 1440px) {
+    .home-tiles {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .home-tiles {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 16px;
+    }
+}
+
+.home-tiles a {
+    display: block;
+    height: 100%;
+    text-align: center;
+    padding: 24px;
+    line-height: 1.55;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 0 3px   rgba(54, 54, 100, 0.015),
+                0 2px 4px rgba(54, 54, 100, 0.025), 
+                0 3px 8px rgba(54, 54, 100, 0.025),
+                0 6px 10px rgba(54, 54, 100, 0.032),
+                0 15px 20px rgba(54, 54, 100, 0.040),
+                0 30px 40px rgba(54, 54, 100, 0.06);
+    transition: all .3s;
+}
+
+.home-tiles a:hover,
+.home-tiles a:focus {
+    transform: translateY(-3px);
+    text-decoration: none;
+    box-shadow: 0 1px 3px   rgba(54, 54, 100, 0.010),
+                0 3px 5px rgba(54, 54, 100, 0.02), 
+                0 6px 10px rgba(54, 54, 100, 0.025),
+                0 15px 18px rgba(54, 54, 100, 0.032),
+                0 30px 33px rgba(54, 54, 100, 0.040),
+                0 55px 80px rgba(54, 54, 100, 0.06);
+}
+
+.home-tile-type {
+    display: block;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    font-size: .875em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #666;
+}
+
+.home-tile-title {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--brand);
+}
+
+.home-tile-desc {
+    display: block;
+    margin-top: 8px;
+    color: var(--brand-code);
+}
+
+.home-section {
+    padding: 40px 0;
+}
+
+.home-section .h2-like,
+.home-section .home-subtitle {
+    text-align: center;
+}
+
+.home-section .home-subtitle {
+    color: #777;
+}
+
 
 /**
  * Tutorial contents
@@ -824,8 +984,8 @@ h3.subsection-title {
 }
 
 .tutorial-content .entry {
-    width: 680px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 680px;
     margin: 0 auto;
 }
 
@@ -931,7 +1091,11 @@ p.subtitle {
     }
 
     h1.page-title {
-        font-size: 1.6em;
+        font-size: 1.4em;
+    }
+
+    .off-canvas-menu p.subtitle {
+        text-align: center;
     }
 
     pre.name {
@@ -942,8 +1106,13 @@ p.subtitle {
 @media (max-width: 400px) {
 
     .off-canvas-menu .menu-btn.is-open {
+        transition: all .3s;
         top: 16px;
         transform: translateX(-16px);
+    }
+
+    .logo img {
+        width: 180px;
     }
 
     li.nav-item-home {

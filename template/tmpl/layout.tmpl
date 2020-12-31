@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title><?js if ( title ) { ?><?js= title ?> - Juiz Social Post Sharer Documentation<?js } else { ?>Juiz Social Post Sharer Documentation<?js } ?></title>
+        <title><?js if ( title && title !== 'Nobs • Share Buttons - Documentation' ) { ?><?js= title ?> - Nobs • Share Buttons for WordPress — Documentation<?js } else { ?>Nobs • Share Buttons for WordPress — Documentation<?js } ?></title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -73,9 +73,16 @@
         <!-- End Google Tag Manager (noscript) -->
 
         <div class="app">
-            <section role="main" id="main">
-
+            <?js if ( title && title === 'Nobs • Share Buttons - Documentation' ) { ?>
+            <section role="main" id="main" class="homepage">
+                <h1 class="page-title">
+                    Nobs • Share Buttons
+                    <span>Documentation</span>
+                </h1>
+            <?js } else { ?>
+            <section role="main" id="main" class="doc-page">
                 <h1 class="page-title"><?js= title ?></h1>
+            <?js } ?>
 
                 <?js= content ?>
 
