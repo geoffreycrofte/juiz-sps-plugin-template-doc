@@ -6,7 +6,7 @@ It's split into several repository that work together:
 
 * [The plugin repository](https://github.com/geoffreycrofte/juiz-social-post-sharer) where the JSDoc settings are, and also where the plugin files are scanned to generate the doc.
 * [The documentation repository](https://github.com/geoffreycrofte/juiz-sps-plugin-documentation) with only HTML files in it, almost. I usually clone it directly into the /plugins folder next to the documented plugin itself. (because of npm related command, see below)
-* [The doc template repository](https://github.com/geoffreycrofte/juiz-sps-plugin-template-doc) which is the structure being used by the tool to generate documentation.
+* [The doc template repository](https://github.com/geoffreycrofte/juiz-sps-plugin-template-doc) which is the structure being used by the tool to generate documentation. I clone it within the plugin folder itself, and I rename the folder `documentation` to match the hookdoc.json file names.
 
 ## Things to know
 
