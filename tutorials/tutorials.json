@@ -1,7 +1,6 @@
  {
      "customize-buttons-appearance": {
-         "title"    : "Customize Buttons Appearance",
-         "children" : ["create-a-custom-button", "customize-css-style-sheet"]
+         "title"    : "Customize Buttons Appearance"
      },
      "create-a-custom-button": {
          "title": "Create a Custom Button"
